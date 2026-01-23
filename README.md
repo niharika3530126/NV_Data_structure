@@ -45,6 +45,7 @@ Fields:
 * id
 * name (unique)
 * description
+* created_by
 
 ### DataElement
 
@@ -59,7 +60,6 @@ Fields:
 * is_required
 * is_pii
 * created_at
-* updated_at
 
 ### Constraints
 
@@ -79,14 +79,18 @@ json
 {
   "name": "Customer",
   
-  "description": "Customer master data"
+  "description": "Customer data"
 }
 
-### List a Datasets with data elements
+### List only Datasets without data elements
 
 GET /datasets
 
-### Retrive Dataset with data elements
+### List Datasets with data elements
+
+GET /datasetselements
+
+### Retrive data elements belonging to particluar dataset
 
 GET /datasets/{dataset_id}
 
@@ -110,6 +114,42 @@ json
   
 }
 
+### Updating a Dataset
+
+PATCH /datasets/{dataset_id}
+
+whichever field is required to update only give that field
+
+Example:
+
+json
+{
+  
+  "description": "Customer data"
+  
+}
+
+### Updating Data Element to Dataset
+
+PATCH /datasets/{dataset_id}/elements/{element_id}
+
+whichever field is required to update only give that field
+
+Example
+
+json
+
+{
+
+  "name": "email"
+  
+}
+
+### Deleting Dataset
+
+DELETE /datasets/{dataset_id}
+
+
 ## Running with Docker
 
 Requires Docker-Desktop
@@ -126,6 +166,8 @@ From the project root:
 docker run -p 8000:8000 data-structure-service
 
 Access the application:
+
+I have used http://0.0.0.0:8000 in docker file
 
 * Swagger UI → [http://localhost:8000/docs](http://localhost:8000/docs)
 
