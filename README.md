@@ -76,10 +76,13 @@ POST /datasets
 Example:
 
 json
+
 {
+
   "name": "Customer",
   
   "description": "Customer data"
+  
 }
 
 ### List only Datasets without data elements
