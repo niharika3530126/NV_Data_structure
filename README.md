@@ -15,6 +15,8 @@ This project handles Datasets and DataElements of a service using FastAPI and SQ
 	
 	•	Testing: pytest
 
+	•	Containerization : Docker
+
 **Project Structure:**
 
 project
