@@ -27,9 +27,7 @@ class DataElement(Base):
 
     dataset = relationship("Dataset", back_populates="elements")
 
-    __table_args__ = (
-        UniqueConstraint("dataset_id", "name", name="uq_dataset_element"),
-        )
+    __table_args__ = (UniqueConstraint("dataset_id", "name", name="uq_dataset_element"))
 
 
 
